@@ -48,7 +48,10 @@
           <fieldset>
             <legend>Dados</legend>
             <div class="map-container">
-              <div class="mapid"></div>
+              <div id="mapid"></div>
+              <input type="hidden" name="lat">
+              <input type="hidden" name="lng">
+              <!--map-id-->
               <footer>
                 <a href="#" id="select-point"
                   >Clique no mapa para adicionar a localização</a
@@ -67,24 +70,27 @@
             </div>
             <div class="input-block">
               <label for="whatsapp">Número de Whatsapp</label>
-              <input id="whatsapp" name="whatsapp"  required/>
+              <input id="whatsapp" name="whatsapp" required />
             </div>
 
             <div class="input-block images">
               <label for="images">Fotos</label>
               <div class="images-upload" id="images">
-              
-              <div class="new-upload">
-                <input name="images" placeholder="Cole o link da foto aqui" required/>
-                <span><img src="./public/images/remove-file.svg" alt="Remover foto"></span>
+                <div class="new-upload">
+                  <input
+                    name="images"
+                    placeholder="Cole o link da foto aqui"
+                    required
+                  />
+                  <span onclick="deleteField(event)"
+                    ><img
+                      src="./public/images/remove-file.svg"
+                      alt="Remover foto"
+                  /></span>
+                </div>
               </div>
-              </div>
 
-
-
-
-
-              <button type="button">
+              <button type="button" onclick="addPhotoField()">
                 <img src="./public/images/add-file.svg" alt="Nova Imagem" />
               </button>
             </div>
@@ -94,12 +100,16 @@
 
             <div class="input-block">
               <label for="instructions">Instruções</label>
-              <textarea id="instructions" name="instructions" required></textarea>
+              <textarea
+                id="instructions"
+                name="instructions"
+                required
+              ></textarea>
             </div>
 
             <div class="input-block">
               <label for="opening_hours">Horários das visitas</label>
-              <input id="opening_hours" name="opening_hours"  required/>
+              <input id="opening_hours" name="opening_hours" required />
             </div>
 
             <div class="input-block">
