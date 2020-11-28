@@ -25,22 +25,22 @@ map.on("click", (event) => {
 });
 // add photo field
 function addPhotoField() {
-  //pegar container de fotos #images
+  //get container #images
   const container = document.querySelector("#images");
-  //pegar o container para duplicar .new-image
+  //get container for cloning  .new-image
   const fieldsContainer = document.querySelectorAll(".new-upload");
-  //realizar o clone da ultima imagem adicionada
+  //make clone of last image added
   const newFieldContainer = fieldsContainer[
     fieldsContainer.length - 1
   ].cloneNode(true);
-  //verificar se o campo esta vazio
+  //verify empty field
   const input = newFieldContainer.children[0];
   if (input.value == "") {
     return;
   }
-  //limpar o campo
+  //clear field
   newFieldContainer.children[0].value = "";
-  //adicionar o clone ao container de images
+  //add clone to image container
   container.appendChild(newFieldContainer);
 }
 function deleteField(event) {
@@ -49,26 +49,26 @@ function deleteField(event) {
   const fieldsContainer = document.querySelectorAll(".new-upload");
 
   if (fieldsContainer.length < 2) {
-    //limpar o valor do campo
+    //clear field value
     span.parentNode.children[0].value = "";
     return;
   }
 
-  //deletar o campo
+  //delete field
   span.parentNode.remove();
 }
-// selecionar sim ou nao
+//select yes or no
 function toggleSelect(event) {
-  //retirar a classe active dos botoes
+  //remove active class from buttons
   document
     .querySelectorAll(".button-select button")
     .forEach((button) => button.classList.remove("active"));
-  //colocar a class active no botao clicado
+  //add active class to buttons
   const button = event.currentTarget;
   button.classList.add("active");
-  // atualizar o input hidden com o valor selecionado
+  //update hidden input with selected value
   const input = document.querySelector('[name="open_on_weekends"]');
-  //verificar se sim ou nao
+  //verify yes or no
   input.value = button.dataset.value;
-  // pegar o botao clicado
+  //get pressed button
 }
